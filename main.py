@@ -49,7 +49,6 @@ def get32kcount():      # collect clock count while pinCom is low (counting stop
 
 def handler(sm):
     td = get32kcount()
-    #print('clock counts =',td,end='   ')  # 32k ticks since last time (expected value = 65535)
     freq = 1/(td/(120*32768))  # 120 cycles into freq (Hz)
     print(freq)   # print to console, host can insert value into influxDB or whatever
     oled.fill(0)  # also print to the tiny local display
